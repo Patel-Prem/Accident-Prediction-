@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Content and Activity Page</title>
+	<link rel="stylesheet" href="/shared/Templates/01_eCentennial/_html/../js/jquery-ui.css">
+	<link rel="stylesheet" href="/shared/Templates/01_eCentennial/_html/../css/ecentennial.css">
+	<link rel="stylesheet" href="/shared/Templates/01_eCentennial/_html/../css/font-awesome.css">
+</head>
+<body role="document">
+<h1 class="content-icon-text">COMP 247 Project</h1>
+<h2 style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;" align="center"><span style="font-size: 24pt;"><b><span style="font-family: Calibri, sans-serif;">Group Project – Developing a predictive machine learning model (classifier) and deploy it as a web API for inference</span></b></span></h2>
+<h3><span style="color: #009900;">1) Purpose</span></h3>
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; font-family: Calibri, sans-serif;">The purpose of this project is to:</span></p>
+<ol>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Pre-processing&nbsp; - Retrieve&nbsp; &amp; prepare the data: </span>
+<ol>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Load and explore the dataset referenced in section 4 in this document using techniques learnt during this course.</span></li>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Visualize the data and describe it thoroughly, identify correlations..etc.</span></li>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Clean, transform categorical data and model the dataset using the techniques learnt throughout the course in preparation for building a predictive model.</span></li>
+</ol>
+</li>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Model building &amp; fine tuning</span>
+<ol>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Build a supervised predictive model based using a suitable classification algorithm(s) in python , utilizing scikit-learn, pandas, numpy…etc. To provide predictions as specified in project specification, section 3 of this report.</span></li>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Validate / score and evaluate the models and choose the best model after carrying out hyper-parameter tuning.</span></li>
+</ol>
+</li>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Model deployment</span>
+<ol>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Build an API for the model using Python Flask framework.</span></li>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Deploy the model on local host.</span></li>
+<li><span style="font-size: 14pt; font-family: Calibri, sans-serif;">&nbsp;</span><span style="font-size: 14pt; font-family: Calibri, sans-serif;">Build a simple front end to access the API and pass new feature values to the prediction model for inference.&nbsp; </span></li>
+</ol>
+</li>
+</ol>
+<h3><span style="font-size: 14pt; color: #009900;"><strong>2) Guidelines &amp; Instructions</strong></span></h3>
+<p>Be sure to read all the</p>
+<p>General:</p>
+<p>- This Project is to be completed in groups of 5 students.<br>- Read the textbook, course lecture content, class examples, and additional references provided here. Each team are free to research and use more materials and tools to implement a good solution, just make sure to reference it in your solution and your report.</p>
+<p>- Presentation:</p>
+<p><br>- Each group will have to present and demonstrate their solution in Week 14 or as agreed with their professor.<br>- During the presentation, each group needs to demonstrate the solution i.e. live code execution and as needed illustrate part of the code. In addition, the group needs to present all key findings, assumptions, constraints, and the list of technologies used clearly.</p>
+<p><br>- Submission:</p>
+<p>- Two submissions are required as follows:</p>
+<p>&nbsp; &nbsp; &nbsp; part #1 :&nbsp; Due week #10, this will include deliverables #1 &amp; 2&nbsp; (Data exploration &amp; Data modeling). worth 12%</p>
+<p>&nbsp; &nbsp; &nbsp; part #2:&nbsp; Due week #14 this will build on part #1 and will include a full report &amp; demonstration of all the deliverables. worth 13%</p>
+<p>&nbsp;&nbsp;<br>- All code developed in python and any other language should be part of the submission.<br>- The&nbsp; submission should be accompanied with a report prepared as a Microsoft document or a pdf explaining the project and detailing all the assumptions, constraints applied. (Details in section 3). <br>- Name the project submission: “KSI_Group_Group#_section_section#COMP247Project” where Group# is the assigned group# and section# is the groups section number.<br>- The submission should be a zipped file containing the code and the written report.</p>
+<p>Peer Evaluation</p>
+<p>- Each team member will complete a peer evaluation form relating to other team members and this will count in the final grade.</p>
+<p>- Grades are issued based on contribution to the project work.</p>
+<h3><span style="color: #009900;">3) Project Specifications &amp; deliverables</span></h3>
+<p><span style="color: #000000;"><span style="color: #000000;">&nbsp;Both the police department and the “general public”&nbsp; would make use of a software product that can give them an idea about the likelihood of fatal collisions that involve loss of life. For the police department it would assist them in taking better measures of security and better planning for road conditions around certain neighborhoods. For the public individuals, it would help them assess the need for additional precautions at certain times and weather conditions and neighborhoods.</span><br><span style="color: #000000;">Based on the dataset described in point four below, which is actual data collected over the period of five years by the Toronto police department. You need to build a predictive service that based on certain features would provide a classification of either</span><strong><span style="color: #000000;">&nbsp;</span><span style="color: #009e0f;"><u>the incident would result in fatality or not.</u></span></strong><br></span></p>
+<p><span style="color: #000000;">Please arrange to provide the following deliverables for your project.</span></p>
+<p><span style="color: #000000;"><br>1. Data exploration: a complete review and analysis of the dataset including:</span></p>
+<ul>
+<li><span style="color: #000000;">Load and describe data elements (columns), provide descriptions &amp; types, ranges and values of elements as appropriate. – use pandas, numpy and any other python packages.</span></li>
+<li><span style="color: #000000;">Statistical assessments including means, averages, correlations</span></li>
+<li><span style="color: #000000;">Missing data evaluations – use pandas, numpy and any other python packages</span></li>
+<li><span style="color: #000000;">Graphs and visualizations – use pandas, matplotlib, seaborn, numpy and any other python packages, you also can use power BI desktop.</span></li>
+</ul>
+<p><span style="color: #000000;">2. Data modelling:</span></p>
+<ul>
+<li><span style="color: #000000;">Data transformations – includes handling missing data, categorical data management, data normalization and standardizations as needed.</span></li>
+<li><span style="color: #000000;">Feature selection – use pandas and sci-kit learn. (The group needs to justify each feature used and any data columns discarded)</span></li>
+<li><span style="color: #000000;">Train, Test data splitting – use numpy, sci-kit learn.</span></li>
+<li><span style="color: #000000;">Managing imbalanced classes if needed. Check here for info: <a href="https://elitedatascience.com/imbalanced-classes">https://elitedatascience.com/imbalanced-classes</a></span></li>
+<li><span style="color: #000000;">Use pipelines class to streamline all the pre-processing transformations.</span></li>
+</ul>
+<p><span style="color: #000000;">3. Predictive model building</span></p>
+<ul>
+<li><span style="color: #000000;">Use logistic regression, decision trees, SVM, Random forest and neural networks&nbsp; algorithms as a minimum– use scikit learn</span></li>
+<li><span style="color: #000000;">Fine tune the models using Grid search and randomized grid search.&nbsp;</span></li>
+</ul>
+<p><span style="color: #000000;"><br>4. Model scoring and evaluation</span></p>
+<ul>
+<li><span style="color: #000000;">Present results as accuracy , precision, recall, F1 scores, confusion matrices and plot the ROC curves of the models - use sci-kit learn</span></li>
+<li><span style="color: #000000;">&nbsp;Select and recommend the best performing model</span></li>
+</ul>
+<p><span style="color: #000000;">5. Deploying the model</span></p>
+<ul>
+<li><span style="color: #000000;">Using flask framework arrange to turn your selected machine-learning model into an analytics&nbsp; API.</span></li>
+<li><span style="color: #000000;">Using pickle module arrange for Serialization &amp; Deserialization of your model.</span></li>
+<li><span style="color: #000000;">Deploy your model on local host.</span></li>
+<li><span style="color: #000000;">Build a client to test your model API service. Use the test data, which was not previously used to train the module. You can use simple Jinja HTML templates with or without Java script, REACT or any other technology but at minimum use POSTMAN Client API.</span></li>
+</ul>
+<p><span style="color: #000000;"><br>6. Prepare a report explaining your project and detailing all the assumptions, constraints you applied should have the following sections:</span></p>
+<ul>
+<li><span style="color: #000000;">Table of contents</span></li>
+<li><span style="color: #000000;">Executive summary (to be written once nearing the end of project work, should describe the problem/solution and key findings)</span></li>
+<li><span style="color: #000000;">Overview of your solution(to be written once nearing the end of project work)</span></li>
+<li><span style="color: #000000;">Data exploration and findings (dataset field descriptions, graphs, visualizations, tools and libraries used….etc.)</span></li>
+<li><span style="color: #000000;">Feature selection (tools and techniques used, results of different combinations…etc.)</span></li>
+<li><span style="color: #000000;">Data modeling (data cleaning strategy, results of data cleaning, data wrangling techniques, assumptions and constraints)</span></li>
+<li><span style="color: #000000;">Model building (train/ test data, sampling, algorithms tested, results: confusion matrixes ...etc.)</span></li>
+</ul>
+<h3><span style="color: #009e0f;">4) Data Set</span></h3>
+<p>This dataset includes all traffic collisions events where a person was either <span style="color: #009e0f;">Killed or Seriously Injured (KSI)</span> from 2006 – 2020&nbsp; in the city of Toronto. (might change to 2021 depending on frequency of update)</p>
+<p>In accordance with the Municipal Freedom of Information and Protection of Privacy Act, the Toronto Police Service has taken the necessary measures to protect the privacy of individuals involved in the reported occurrences. No personal information related to any of the parties involved in the occurrence will be released as open data.<br>The location of the incident occurrences have been deliberately offset to the nearest road intersection node to protect the privacy of parties involved in the occurrence. All location data must be considered as an approximate location of the occurrence and users are advised not to interpret any of these locations as related to a specific address or individual.<br>The reported&nbsp; dataset is intended to provide communities with information regarding public safety and awareness. The data supplied to the Toronto Police Service by the reporting parties is preliminary and may not have been fully verified.</p>
+<p><a href="https://data.torontopolice.on.ca/datasets/TorontoPS::ksi/about" target="_blank" rel="noopener">KSI dataset</a></p>
+<p><img src="File_utcwa385fapnzix5u8jdwo2oes6h8v0v001127463370.png" data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+<p>Use the download tab and select spreadsheet to download the dataset as a csv file, also download the pdf guide the describes the metadata and navigate to the specific section that describes the KSI dataset. You can find the guide at this link<a href="https://ago-item-storage.s3.us-east-1.amazonaws.com/c0b17f1888544078bf650f3b8b04d35d/PSDP_Open_Data_Documentation.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIA1YfDmhR6VtaBTbCOhwMBzSsTwBce1bePd1G23AWmrrAiAyHhceE1GTfVO2XcMQWbSZZf3uoZKcjGaeQL8A5qSYgCrcBAiO%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYwNDc1ODEwMjY2NSIMIQZGPu6c9Ej7aeBeKrAEcHgQKG4roAZyVAloJwVxhiCK%2FikUQfI280kGdp48jqHC2TobFBh5PfpRPryD%2BYchNXLg%2BJ8OexcLuk6iinRj6bcJGZcvoMRSdBbRx3dKJJdGHYCz6VNT0%2BIADpePEN0792YhRQsjcvTNm%2FuKuqJcFxO60GSvAfPMtMLEMESwoZ3NWRcpzQk7DhjH7gaCNZYNNP6t%2FFpHoalNmNH8nMmzZmbeRy1MaEEUedGtbYRTdYFeewxCq3JjuRvBRl7HM%2B7wlwDlsu2l%2FYCvITEFKhAwvFgTdT4tOtMJHzisP5LeHlvFPWSmGhrEO9lJx7HkWk2bE8i4K7r4GZc5DR2UdEtr%2FIePoUElXVqZk8yRt9dA22mZr846%2FzCA3XsG4y9G%2BJv1fsZqSGZZp5j5ba%2BVDJiKatwv6bIGEXDaXnynrqFNwe%2F59kosLH7jecg1canrm0BB6fk0vbHPgH%2FJXRbNZfteSj6mdpx3wlYyePq0eSvhOZdhJdw7PRiQUOHwtIHzQ7XTvYBqlgSJlVsCQwJNfTbn%2BzH6x5Q0%2BC6w4yZ%2FkrfPRDM55qOOJgrfHfuGS4IWaoNN3sJCMCbyLW7nyFDQLHxXsRjGttMwebAEnKq0JjLDdowf1AzGhObpPwYkkcYaO9Nq0f8sBEcFZBIlWHa35dY83O3WBPRsktlFpMRlv4gQbRQTAYN9Vyf4LkrDJ%2FXzaS4nnvexTQ3wNqEnl7FHMuAl%2BiEHYZiyevCrfPw%2FCXeXPTIw8ZrPkwY6qgGavDRPQB8paix69lnZqSD6GVGCWiCipLSLZjqeg1fcY3w4U82btiRDgyC%2BYLcpx%2BMBG7vfYPjPEWmzpDXHwNokTSSuwsF8wFsSDR%2FZaRZY%2FPR8gOE5gbC%2Fa%2Bw6t345C%2Bky9N7hUC0BXAuzY%2Bg9R%2B%2BA69YF5Rm8eHv2FRr%2BBYyQ6rwS5eVcTDVJnDOO6Gr4gbBq7x1oTN9jMVtkgkgBTCOivQdwNAwwQN%2FwaQ%3D%3D&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20220505T144248Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAYZTTEKKEQLTJ47HU%2F20220505%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=bc3783b540bdee4bcb6d8e6924a096d4da4f271180c8aa32fde7d560aec2c824" target="_blank" rel="noopener"> PUBLIC SAFETY DATA PORTAL: OPEN DATA DOCUMENTATION&nbsp;</a></p>
+<p></p>
+<h3><span style="color: #009e0f;">5) Evaluation of software solution:</span></h3>
+<p><span style="color: #009e0f;"></span></p>
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" width="798" height="199" style="border-collapse: collapse; width: 100%; height: 229.297px; border-color: initial; border-style: none;">
+<tbody>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Evaluation Component</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: 1pt solid windowtext; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-image: initial; border-left: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Percentage</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><strong><span style="font-family: Calibri, sans-serif;">Data exploration</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">10%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><strong><span style="font-family: Calibri, sans-serif;">Data modelling</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">15%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><strong><span style="font-family: Calibri, sans-serif;">Predictive model building </span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">15%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="line-height: 12pt; margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><strong><span style="font-size: 12.0pt; font-family: Calibri, sans-serif; color: black;">Model scoring and evaluation</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">10%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><strong><span style="font-family: Calibri, sans-serif;">Model deployment</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">25%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="line-height: 12pt; margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><strong><span style="font-size: 12.0pt; font-family: Calibri, sans-serif; color: black;">Report </span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">10%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="line-height: 12pt; margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><strong><span style="font-size: 12.0pt; font-family: Calibri, sans-serif; color: black;">Presentation</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">10%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="line-height: 12pt; margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><strong><span style="font-size: 12.0pt; font-family: Calibri, sans-serif; color: black;">Innovation &amp; creativity</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">5%</span></strong></p>
+</td>
+</tr>
+<tr style="height: 22.9297px;">
+<td style="width: 403.549px; border-right: 1pt solid windowtext; border-bottom: 1pt solid windowtext; border-left: 1pt solid windowtext; border-image: initial; border-top: none; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Total</span></strong></p>
+</td>
+<td style="width: 493.289px; border-top: none; border-left: none; border-bottom: 1pt solid windowtext; border-right: 1pt solid windowtext; padding: 0in 5.4pt; height: 22.9297px;" valign="top">
+<p style="text-align: center; margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;" align="center"><strong><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">100%</span></strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3><span style="color: #009e0f;">6) Rubric:</span></h3>
+<table cellpadding="0" cellspacing="0" border="1" class="MsoTableGrid" style="border-collapse: collapse; border: none;">
+<tbody>
+<tr style="height: 31.9pt;">
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Evaluation Component</span></b></p>
+</td>
+<td valign="top" style="width: .95in; border: solid windowtext 1.0pt; border-left: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Not acceptable</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score = &nbsp;&nbsp;0</span></b></p>
+</td>
+<td valign="top" style="width: 112.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Below average</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score 1 -5.9 points</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+</td>
+<td valign="top" style="width: 97.75pt; border: solid windowtext 1.0pt; border-left: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Average</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score </span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">6-6.9 points</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+</td>
+<td valign="top" style="width: 108.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Competent </span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score </span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">7-8.9 points</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+</td>
+<td valign="top" style="width: 108.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Excellent</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">9-10 points</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-family: Calibri, sans-serif;">Data exploration</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">&nbsp;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">Score multiply by 1</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Data exploration completely missing or what is submitted is below 30% with no relationship analysis.</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Only 50%-60% of dataset attributes have been explored or exploration not complete on # of missing values, only a few relationships are captured.</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Only 60%-70% of dataset attributes have been explored or exploration not complete on # of missing values not all relationships are captured.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Most dataset attributes columns have been explored and a complete description of each attribute value meaning has been reported in addition to exploring some relationships between attributes.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">All dataset attributes columns have been explored and a complete description of each attribute value meaning has been reported in addition to exploring all relationships between attributes.</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-family: Calibri, sans-serif;">Data modelling</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">&nbsp;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">Score multiply by 1.5</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Used the data attributes as is with no cleaning or manipulation.</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Identified a data model with no justification<b>.</b></span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Minimum data cleanings.</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Identified a data model with 50-70 %</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;Justification.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Applied moderate data cleaning.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Identified a data model with 80 %</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;Justification. </span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Applied data cleaning.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Identified a comprehensive data model.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Data model clearly states which attributes should be dropped and why also which attributes should be transformed with a logical justification.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-family: Calibri, sans-serif;">Predictive model building </span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">Score multiply by 1.5</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Did not build any<b> </b>to build the predictive models.</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Used one of the specified minimum algorithms effectively to build the predictive models with mistakes. No hyper-parameter tuning.</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Used one of the specified minimum algorithms effectively to build the predictive models without mistakes. Minimum hyper-parameter tuning.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Used specified minimum algorithms effectively to build the predictive models with minor mistakes.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Minimum hyper-parameter tuning.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Used specified minimum algorithms effectively to build the predictive models without any mistakes. Carried out hyperparameter tuning effectively.</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-family: Calibri, sans-serif;">Model scoring and evaluation</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">Score multiply by 1.5</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">No model evaluations</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">conducted</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Some metrics are generated for each model with no comparisons / conclusions presented.</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Some metrics are generated for each model with minimum comparisons presented with partial conclusions.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">All metrics are generated for each model and a comprehensive comparison presented with partial conclusions.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">All metrics are generated for each model and a comprehensive comparison presented with clear conclusions.</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-family: Calibri, sans-serif;">Model deployment</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score multiply by 2.5</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">No demo</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">No web server code developed</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Some code with many errors, not working.</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Submitted and presented a working analytics web app with some issues in message exchange Code is not modular nor documented.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Submitted and presented a working analytics web app showing messages exchanged, through a frontend or simulator.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Code is modular and partially documented.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Submitted and presented a working analytics web app showing messages exchanged, through a frontend or simulator.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Code is modular and well documented.</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-family: Calibri, sans-serif;">Report </span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score multiply by 1</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">No Report submitted.</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Has no clear introduction or has an irrelevant introduction; gives reader no focus or outline of the report.</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Has introduction relevant to the topic and gives a clear outline; is not organized; has many repetitions the reader would get confused.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Has introduction relevant to the topic and gives a clear outline; is mostly organized; provides adequate “road map” for the reader.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Has a clear introduction &amp; outline that catches reader’s interest; maintains focus throughout; summarizes main points</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-family: Calibri, sans-serif;">Presentation</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Score multiply by 1</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Team not ready for presentation.</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">Some team members do not participate. </span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">All read off the slides.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">Voice too low or too high.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Demonstrates little grasp of information; has undeveloped or unclear answers to questions</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">Some team members participate in the delivery;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">Some team members read off the slides.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">In response to questions the team shows ease in answering questions but does not elaborate.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">All team members participate equally in the delivery;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">Some team members read off the slides.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">In response to questions the team shows ease in answering questions but does not elaborate.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 10pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif; color: black;">All team members participate equally in the delivery;</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Team projects enthusiasm, interest, and confidence; uses body language effectively.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">In response to questions demonstrates full knowledge of topic.</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" style="width: 53.1pt; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">Innovation &amp; creativity</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-family: Calibri, sans-serif;">Score multiply by 0.5</span></p>
+</td>
+<td valign="top" style="width: .95in; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">No suggestion or implementation of new algorithms</span></p>
+</td>
+<td valign="top" style="width: 112.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Team suggests new non-relevant techniques/models/algorithms without implementation</span></p>
+</td>
+<td valign="top" style="width: 97.75pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Team suggests new relevant techniques/models/algorithms without implementation.</span></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Team researches and demos new relevant techniques/models/algorithms with some unclarity. Or introduces a front-end with a few mistakes.</span></p>
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><b><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">&nbsp;</span></b></p>
+</td>
+<td valign="top" style="width: 108.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;">
+<p style="margin: 0in 0in 0.0001pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: black;"><span style="font-size: 11.5pt; font-family: Calibri, sans-serif;">Team researches and demos new relevant techniques/models/algorithms efficiently. Or builds a front end.</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color: #009e0f;"></span></p>
+<h3 class="reference-icon">References</h3>
+<p><a href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a><br><a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a><br><a href="https://numpy.org/">https://numpy.org/</a><br><a href="http://flask.pocoo.org/">http://flask.pocoo.org/</a><br><a href="https://www.getpostman.com/automated-testing">https://www.getpostman.com/automated-testing</a><br><a href="https://www.datacamp.com/community/tutorials/machine-learning-models-api-python">https://www.datacamp.com/community/tutorials/machine-learning-models-api-python</a><br><a href="https://www.analyticsvidhya.com/blog/2017/09/machine-learning-models-as-apis-using-flask/">https://www.analyticsvidhya.com/blog/2017/09/machine-learning-models-as-apis-using-flask/</a><br><a href="https://data.torontopolice.on.ca/datasets/TorontoPS::ksi/about" target="_blank" rel="noopener">KSI dataset</a></p>
+<p><a href="https://ago-item-storage.s3.us-east-1.amazonaws.com/c0b17f1888544078bf650f3b8b04d35d/PSDP_Open_Data_Documentation.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIA1YfDmhR6VtaBTbCOhwMBzSsTwBce1bePd1G23AWmrrAiAyHhceE1GTfVO2XcMQWbSZZf3uoZKcjGaeQL8A5qSYgCrcBAiO%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYwNDc1ODEwMjY2NSIMIQZGPu6c9Ej7aeBeKrAEcHgQKG4roAZyVAloJwVxhiCK%2FikUQfI280kGdp48jqHC2TobFBh5PfpRPryD%2BYchNXLg%2BJ8OexcLuk6iinRj6bcJGZcvoMRSdBbRx3dKJJdGHYCz6VNT0%2BIADpePEN0792YhRQsjcvTNm%2FuKuqJcFxO60GSvAfPMtMLEMESwoZ3NWRcpzQk7DhjH7gaCNZYNNP6t%2FFpHoalNmNH8nMmzZmbeRy1MaEEUedGtbYRTdYFeewxCq3JjuRvBRl7HM%2B7wlwDlsu2l%2FYCvITEFKhAwvFgTdT4tOtMJHzisP5LeHlvFPWSmGhrEO9lJx7HkWk2bE8i4K7r4GZc5DR2UdEtr%2FIePoUElXVqZk8yRt9dA22mZr846%2FzCA3XsG4y9G%2BJv1fsZqSGZZp5j5ba%2BVDJiKatwv6bIGEXDaXnynrqFNwe%2F59kosLH7jecg1canrm0BB6fk0vbHPgH%2FJXRbNZfteSj6mdpx3wlYyePq0eSvhOZdhJdw7PRiQUOHwtIHzQ7XTvYBqlgSJlVsCQwJNfTbn%2BzH6x5Q0%2BC6w4yZ%2FkrfPRDM55qOOJgrfHfuGS4IWaoNN3sJCMCbyLW7nyFDQLHxXsRjGttMwebAEnKq0JjLDdowf1AzGhObpPwYkkcYaO9Nq0f8sBEcFZBIlWHa35dY83O3WBPRsktlFpMRlv4gQbRQTAYN9Vyf4LkrDJ%2FXzaS4nnvexTQ3wNqEnl7FHMuAl%2BiEHYZiyevCrfPw%2FCXeXPTIw8ZrPkwY6qgGavDRPQB8paix69lnZqSD6GVGCWiCipLSLZjqeg1fcY3w4U82btiRDgyC%2BYLcpx%2BMBG7vfYPjPEWmzpDXHwNokTSSuwsF8wFsSDR%2FZaRZY%2FPR8gOE5gbC%2Fa%2Bw6t345C%2Bky9N7hUC0BXAuzY%2Bg9R%2B%2BA69YF5Rm8eHv2FRr%2BBYyQ6rwS5eVcTDVJnDOO6Gr4gbBq7x1oTN9jMVtkgkgBTCOivQdwNAwwQN%2FwaQ%3D%3D&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20220505T144248Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAYZTTEKKEQLTJ47HU%2F20220505%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=bc3783b540bdee4bcb6d8e6924a096d4da4f271180c8aa32fde7d560aec2c824" target="_blank" rel="noopener">PUBLIC SAFETY DATA PORTAL: OPEN DATA DOCUMENTATION&nbsp;</a><br><a href="https://elitedatascience.com/imbalanced-classes">https://elitedatascience.com/imbalanced-classes</a></p>
+<p class="footer">&nbsp;</p>
+<p>
+<script src="/shared/Templates/01_eCentennial/_html/../js/external/jquery/jquery.js"></script>
+<script src="/shared/Templates/01_eCentennial/_html/../js/jquery-ui.js"></script>
+<script src="/shared/Templates/01_eCentennial/_html/../js/ecentennial.js"></script>
+</p>
+</body></html>

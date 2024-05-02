@@ -1,0 +1,46 @@
+.width_div{
+    margin: 0px;
+}
+
+.select-box
+{
+    position: relative;
+}
+.select-label
+{
+    position: absolute;
+    top: -14px;
+    left: 7px;
+    background-color: white;
+    height: 15px;
+}
+
+.label-font
+{
+    font-size: 14px;
+}
+
+.glitch{
+    color: #000 !important;
+    margin: 0 !important;
+    font-size: 50px !important;
+}
+
+.result{
+    position: absolute;
+}
+
+.animation{
+    position: absolute;
+    top: 0 !important;
+    left: 0 !important;
+    width: 80% !important;
+    /* aspect-ratio: 3/2; */
+}
+
+.number-field{
+    width: 100%;
+    border-radius: 6px;
+    border-color: #dee2e6;
+    border-style: solid;
+}

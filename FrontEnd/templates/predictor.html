@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/assets/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="aNonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+    .form-select{
+        appearance: none !important;
+    }</style>
+</head>
+<body class="bg-white w-100 h-100">
+    <!-- 'AG_DRIV', 'ALCOHOL', 'AUTOMOBILE', 'CYCLIST', 'DISABILITY', 'DRIVACT', 'DRIVCOND', 'EMERG_VEH', 'IMPACTYPE', 'INJURY', 'INVAGE', 'LIGHT', 'LOCCOORD', 'MANoEUVER', 'MOTORCYCLE', 'PASSENGER', 'PEDESTRIAN', 'RDSFCOND', 'REDLIGHT', 'ROAD_CLASS', 'SPEEDING', 'TRAFFCTL', 'TRSN_CITY_VEH', 'TRUCK', 'VISIBILITY' -->
+    <div class="text-center text-black d-flex justify-content-center align-items-center">
+        <img src="../static/assets/KSI Logo.png" style="width:15%; height:15%;">
+        <h1> KSI Collision Dashboard </h1>
+    </div>
+    <div>
+        <form method="post" class="form-control bg-white border border-0">
+            <!-- <div class="row row-cols-12 mb-4 d-flex align-items-center justify-content-evenly"> -->
+            <div class="row row-cols-12 mb-4 d-flex align-items-center justify-content-evenly">
+
+                <!-- <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">LATITUDE</label>
+                    </div>
+                    <input type="text" class="number-field select-font focus-ring" required="required" name="LATITUDE">
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">LONGITUDE</label>
+                    </div>
+                    <input type="text" class="number-field select-font focus-ring" required="required" name="LONGITUDE">
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">YEAR</label>
+                    </div>
+                    <input type="text" class="number-field select-font focus-ring" required="required" name="YEAR">
+                </div> -->
+
+                <!-- <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">LATITUDE</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="LATITUDE">
+                        <option value="43.656345">43.656345</option>
+                        <option value="43.801943">43.801943</option>
+                        <option value="43.801943">43.699595</option>
+                        <option value="43.801943">43.699595</option>
+                        <option value="43.801943">43.649345</option>
+                        <option value="43.801943">43.699595</option>
+                        <option value="43.801943">43.697045</option>
+                        <option value="43.801943">43.744545</option>
+                        <option value="43.801943">43.787345</option>
+                        <option value="43.801943">43.687645</option>
+                        <option value="43.801943">43.721445</option>
+                    </select>  
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">LONGITUDE</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="LONGITUDE">
+                        <option value="-79.45249">-79.45249</option>
+                        <option value="-79.199786">-79.199786</option>
+                        <option value="43.801943">-79.318797</option>
+                        <option value="43.801943">-79.318797</option>
+                        <option value="43.801943">-79.42079</option>
+                        <option value="43.801943">-79.318797</option>
+                        <option value="43.801943">-79.54669</option>
+                        <option value="43.801943">-79.29829</option>
+                        <option value="43.801943">-79.35299</option>
+                        <option value="43.801943">-79.39389</option>
+                        <option value="43.801943">-79.55809</option>
+                    </select>  
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">YEAR</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="YEAR">
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                    </select>  
+                </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">LATITUDE</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="LATITUDE">
+                        <!-- Sheppard E -->
+                        <option value="43.805445">43.805445</option>  
+                        <!-- sheppard and kennedy   -->
+                        <option value="43.783245">43.783245</option>
+                        <!-- Kennedy and lawrence -->
+                        <option value="43.656345">43.749445</option>
+                        <option value="43.801943">43.801943</option>
+                        <option value="43.699595">43.699595</option>
+                        <option value="43.699595">43.699595</option>
+                        <option value="43.649345">43.649345</option>
+                        <option value="43.699595">43.699595</option>
+                        <option value="43.697045">43.697045</option>
+                        <option value="43.744545">43.744545</option>
+                        <option value="43.787345">43.787345</option>
+                        <option value="43.687645">43.687645</option>
+                        <option value="43.721445">43.721445</option>
+                        <option value="43.744045">43.744045</option>
+                        <option value="43.662856">43.662856</option>
+                        <option value="43.686591">43.686591</option>
+                        <option value="43.641364">43.641364</option>
+                    </select>  
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">LONGITUDE</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="LONGITUDE">
+                        <option value="-79.15969">-79.15969</option>
+                        <option value="-79.45249">-79.28829</option>
+                        <option value="-79.199786">-79.27489</option>
+                        <option value="-79.318797">-79.318797</option>
+                        <option value="-79.318797">-79.318797</option>
+                        <option value="-79.42079">-79.42079</option>
+                        <option value="-79.318797">-79.318797</option>
+                        <option value="-79.54669">-79.54669</option>
+                        <option value="-79.29829">-79.29829</option>
+                        <option value="-79.35299">-79.35299</option>
+                        <option value="-79.39389">-79.39389</option>
+                        <option value="-79.55809">-79.55809</option>
+                        <option value="-79.415">-79.415</option>
+                        <option value="-79.5954">-79.5954</option>
+                        <option value="-79.4365">-79.4365</option>
+                        <option value="-79.421268">-79.421268</option>
+                    </select>  
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">YEAR</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="YEAR">
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>  
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">AUTOMOBILE</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="AUTOMOBILE">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>    
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">CYCLIST</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="CYCLIST">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>    
+                </div>
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">MOTORCYCLE</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="MOTORCYCLE">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>    
+                </div>
+              
+
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">PEDESTRIAN</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="PEDESTRIAN">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>    
+                </div>
+
+            
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">TRAFFIC CONTROL TYPE</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="TRAFFCTL">
+                        <option value="Traffic Signal">Traffic Signal</option>
+                        <option value="No Control">No Control</option>
+                        <option value="Stop Sign">Stop Sign</option>
+                        <option value="Pedestrian Crossover">Pedestrian Crossover</option>
+                        <option value="Traffic Controller">Traffic Controller</option>
+                        <option value="Yield Sign">Yield Sign</option>
+                        <option value="School Guard">School Guard</option>
+                        <option value="Police Control">Police Control</option>
+                        <option value="Traffic Gate">Traffic Gate</option>
+                        <option value="Streetcar (Stop for)">Streetcar (Stop for)</option>
+                    </select>    
+                </div>
+                
+            
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2 mx-3">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">CITY VEHICAL INV. IN COLLISION</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="TRSN_CITY_VEH">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>    
+                </div>
+                <div class="col-4 m-3 border border-2 rounded-2 select-box p-2 mx-3">
+                    <div class="select-label">
+                        <label class="form-label text-black label-font">TRUCK</label>
+                    </div>
+                    <select class="form-select select-font" required="required" name="TRUCK">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>    
+                </div>
+                
+            </div>   
+            <div class="row-cols-12 d-flex align-items-center justify-content-center">
+                <hr class = "border border-danger w-100 text-center">
+            </div>
+            <div class="row-cols-12 d-flex align-items-center justify-content-center mt-2">
+                <div class="col-4 m-3 mx-3">
+                    <select class="form-select select-font" required="required" name="MODEL">
+                        <option value="decision_tree">Desicion Tree</option>
+                        <option value="logistic_regression">Logistic Regression</option>
+                        <!-- <option value="NeuralNetwork">Neural Network</option> -->
+                        <option value="random_forest">Random Forest</option>
+                        <option value="svm">SVM</option>        
+                        <option value="xgboost">xgboost</option>        
+                    </select>    
+                </div>
+                <button class="btn btn-success mx-3 boder border-3 border-black" type="submit" id="success">PREDICT</button>
+                <button class="btn btn-secondary mx-3 boder border-3 border-black" type="reset">RESET</button>
+                <h1 class="text-black">{{prediction}}</h1>
+            </div>
+        </form>
+        <script>
+            document.getElementById('success').addEventListener("onsubmit", function(){
+                Swal.fire({
+                title: 'Custom width, padding, color, background.',
+                width: 600,
+                padding: '3em',
+                color: '#716add',
+                background: '#fff url(/images/trees.png)',
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    No-repeat
+                `
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
